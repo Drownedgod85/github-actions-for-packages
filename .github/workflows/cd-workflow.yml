@@ -62,5 +62,5 @@ jobs:
         registry: docker.pkg.github.com
         repository: Drownedgod85/github-actions-for-packages/tic-tac-toe
         tag_with_sha: true
-        image-name: tic-tac-toe
+        image-name: tic-tac-toe1
         
