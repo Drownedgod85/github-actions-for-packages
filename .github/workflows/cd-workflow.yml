@@ -23,7 +23,7 @@ jobs:
     needs: build
     strategy:
       matrix:
-        os: [ubuntu-lastest, windows-2016]
+        os: [ubuntu-latest, windows-2016]
         node-version: [12.x, 14.x]
 
     steps:
@@ -55,12 +55,12 @@ jobs:
       with:
         name: webpack artifacts
         path: public
-    - name: Build container image
-      uses: docker/build-push-action@v1
+    - name: Build, Tag, Push
+      uses: mattdavis0351/actions/docker-gpr@v1.3.0
       with:
-        username: ${{github.actor}}
-        password: ${{secrets.GITHUB_TOKEN}}
+        repo-token: ${{secrets.GITHUB_TOKEN}}
         registry: docker.pkg.github.com
         repository: Drownedgod85/github-actions-for-packages/tic-tac-toe
         tag_with_sha: true
+        image-name: tic-tac-toe
         
